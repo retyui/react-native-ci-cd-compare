@@ -23,7 +23,7 @@ android:
     - android-29
 
     # The BuildTools version used by your project
-    - build-tools-28.0.3
+    - build-tools-29.0.2
 
     # Additional components
     - extra-google-google_play_services

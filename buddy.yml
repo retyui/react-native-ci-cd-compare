@@ -1,7 +1,8 @@
 - pipeline: "build android"
   trigger_mode: "ON_EVERY_PUSH"
-  ref_name: "main"
-  ref_type: "BRANCH"
+  ref_name: "*"
+  ref_type: "WILDCARD"
+  fetch_all_refs: true
   fail_on_prepare_env_warning: true
   trigger_condition: "ALWAYS"
   actions:
