@@ -9,6 +9,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # Gradle Cache https://github.com/actions/cache/blob/main/examples.md#java---gradle
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
       # Yarn Cache: https://github.com/actions/cache/blob/master/examples.md#node---yarn
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
