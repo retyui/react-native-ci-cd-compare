@@ -1,0 +1,24 @@
+image: circleci/android:api-29-node
+
+stages:
+  - build-android
+
+default:
+  interruptible: true
+  before_script:
+    - yarn install --frozen-lockfile
+
+cache:
+  key:
+    files:
+      - yarn.lock
+  paths:
+    - node_modules
+
+build-android:
+  stage: build-android
+  script:
+    - cd android && ./gradlew bundleRelease assembleRelease
+  artifacts:
+    paths:
+      - ./android/app/build/outputs/
