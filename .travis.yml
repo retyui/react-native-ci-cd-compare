@@ -48,7 +48,7 @@ cache:
 
 install:
   - nvm install $NODE_VERSION && nvm use $NODE_VERSION && nvm alias default $NODE_VERSION && node --version && npm i -g yarn
-  - yarn install
+  - yarn install --frozen-lockfile
 
 script:
   - cd android && ./gradlew bundleRelease

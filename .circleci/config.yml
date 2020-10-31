@@ -1,0 +1,51 @@
+# Based on https://github.com/CircleCI-Public/circleci-demo-react-native
+version: 2.1
+jobs:
+  node:
+    working_directory: ~/app
+    docker:
+      - image: cimg/node:14.15
+    steps:
+      - checkout
+      - restore_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+      - run: yarn install --frozen-lockfile
+      - save_cache:
+          key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
+          paths:
+            - ~/.cache/yarn
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
+
+      - persist_to_workspace:
+          root: ~/app
+          paths:
+            - node_modules
+
+  android-build:
+    working_directory: ~/app/android
+    docker:
+      - image: circleci/android:api-29-node
+    steps:
+      - checkout:
+          path: ~/app
+      - attach_workspace:
+          at: ~/app
+      - run:
+          name: Bundle .aap (Android App Bundle)
+          command: ./gradlew bundleRelease
+      - store_artifacts:
+          path: app/build/outputs/bundle/release
+          destination: release-aab/
+
+workflows:
+  node-android:
+    jobs:
+      - node
+      - android-build:
+          requires:
+            - node
