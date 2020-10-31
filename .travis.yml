@@ -51,4 +51,4 @@ install:
   - yarn install --frozen-lockfile
 
 script:
-  - cd android && ./gradlew bundleRelease
+  - cd android && ./gradlew bundleRelease assembleRelease

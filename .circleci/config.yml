@@ -36,11 +36,14 @@ jobs:
       - attach_workspace:
           at: ~/app
       - run:
-          name: Bundle .aap (Android App Bundle)
-          command: ./gradlew bundleRelease
+          name: Bundle *.aap & *.apk
+          command: ./gradlew bundleRelease assembleRelease
       - store_artifacts:
           path: app/build/outputs/bundle/release
           destination: release-aab/
+      - store_artifacts:
+          path: app/build/outputs/apk/release
+          destination: release-apk/
 
 workflows:
   node-android:
