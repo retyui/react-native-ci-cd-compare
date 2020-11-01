@@ -1,0 +1,15 @@
+image: reactnativecommunity/react-native-android
+
+pipelines:
+  default:
+    - step:
+        name: Build Android
+        caches:
+          - node
+          - gradle
+        script:
+          - npx envinfo
+          - yarn install --frozen-lockfile
+          - cd android && chmod +x gradlew && ./gradlew bundleRelease assembleRelease
+        artifacts:
+          - android/app/build/outputs/**
