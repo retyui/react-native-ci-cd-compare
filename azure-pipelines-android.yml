@@ -1,0 +1,38 @@
+# https://techcommunity.microsoft.com/t5/windows-dev-appconsult/using-azure-devops-to-create-a-ci-cd-pipeline-for-an-android/ba-p/1094422
+# Based on: https://github.com/staff0rd/react-native-pipeline/blob/master/azure-pipelines-android.yml
+
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: NodeTool@0
+    displayName: 'Install Node'
+    inputs:
+      versionSpec: '14.15.0'
+
+  - script: npx envinfo
+
+  - script: yarn install
+    displayName: 'Install node dependencies'
+
+  - task: Gradle@2
+    inputs:
+      workingDirectory: 'android'
+      gradleWrapperFile: 'android/gradlew'
+      gradleOptions: '-Xmx3072m'
+      tasks: 'bundleRelease assembleRelease'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: android/app/build/outputs/apk/release/app-release.apk
+      artifactName: drop
+      publishLocation: 'container'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: android/app/build/outputs/bundle/release/app-release.aab
+      artifactName: drop
+      publishLocation: 'container'
