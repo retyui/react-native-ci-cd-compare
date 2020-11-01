@@ -11,7 +11,6 @@ jobs:
           key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
       - restore_cache:
           key: node-v1-{{ checksum "package.json" }}-{{ arch }}
-      - run: npx envinfo
       - run: yarn install --frozen-lockfile
       - save_cache:
           key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}
@@ -36,7 +35,6 @@ jobs:
           path: ~/app
       - attach_workspace:
           at: ~/app
-      - run: npx envinfo
       - run:
           name: Bundle *.aap & *.apk
           command: ./gradlew bundleRelease assembleRelease

@@ -13,8 +13,6 @@ steps:
     inputs:
       versionSpec: '14.15.0'
 
-  - script: npx envinfo
-
   - script: yarn install
     displayName: 'Install node dependencies'
 

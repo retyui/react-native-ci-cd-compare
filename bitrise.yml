@@ -11,11 +11,6 @@ workflows:
     - cache-pull@2:
         inputs:
         - is_debug_mode: 'true'
-    - script@1.1.5:
-        inputs:
-          - content: |-
-              #!/usr/bin/env bash
-              npx envinfo
     - yarn@0:
         inputs:
         - command: install

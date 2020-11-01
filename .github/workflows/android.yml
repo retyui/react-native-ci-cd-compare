@@ -30,8 +30,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - run: npx envinfo
-
       - name: Install node dependencies
         run: yarn install --frozen-lockfile
 

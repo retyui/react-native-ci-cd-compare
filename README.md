@@ -4,6 +4,21 @@ I just create a black React Native 0.63.x Project and integrate CD/CI services (
 
 Then I add a lot of native libraries to check how it cause build time (see column: [Speed #2](https://github.com/retyui/react-native-ci-cd-compare/pull/1))  
 
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+
+- [Environment information ENVINFO.md](#environment-information-envinfomd)
+- [Android builds](#android-builds)
+- [iOS builds (TODO)](#ios-builds-todo)
+- [Limitations of CI/CD services](#limitations-of-cicd-services)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+## Environment information [ENVINFO.md](ENVINFO.md) 
+
 ## Android builds
 
 | CI | Status | Speed #1 | [Speed #2](https://github.com/retyui/react-native-ci-cd-compare/pull/1) |
@@ -18,10 +33,36 @@ Then I add a lot of native libraries to check how it cause build time (see colum
 | [Nevercode](https://nevercode.io/blog/continuous-integration-for-react-native/) | [![Nevercode build status](https://app.nevercode.io/api/projects/8b869647-61e1-43bf-bc3e-c630f6099205/workflows/b81b5cb7-0ebe-43d1-92e0-81261d790fcc/status_badge.svg?branch=main)](https://app.nevercode.io/#/project/8b869647-61e1-43bf-bc3e-c630f6099205) | 11 min 4 sec | 13 min 22 sec |
 | [appcircle](https://appcircle.io/blog/guide-to-automated-mobile-ci-cd-for-react-native-appcircle/) | [n/a](https://my.appcircle.io/build/detail/f552b6ad-96fd-43fe-bffc-55f4268ee0d4) | 7 min 16 sec | 10 min 53 sec | 
 | [Gitlab CI/CD](https://docs.gitlab.com/ee/ci/) | [![GitLab CI status](https://gitlab.com/retyui/react-native-ci-cd-compare/badges/main/pipeline.svg)](https://gitlab.com/retyui/react-native-ci-cd-compare/-/jobs) | 7 min 44 sec | 12 min 47 sec |
-| [Bitbucket Pipelines](https://bitbucket.org/product/ru/features/pipelines) | [![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/retyui/react-native-ci-cd-compare/main)](https://bitbucket.org/retyui/react-native-ci-cd-compare/addon/pipelines/home) | 1 min 53 sec 🚀 | 3 min 28 sec 🚀 |
-| [Azure DevOps](https://techcommunity.microsoft.com/t5/windows-dev-appconsult/using-azure-devops-to-create-a-ci-cd-pipeline-for-an-android/ba-p/1094422) | [![Azure DevOps builds](https://img.shields.io/azure-devops/build/retyui/d677252b-5812-4ced-958a-f6c53979724a/1)](https://dev.azure.com/retyui/react-native-ci-cd-compare/_build?definitionId=1) | 4 min 4 sec | ? |
+| [Bitbucket Pipelines](https://bitbucket.org/product/ru/features/pipelines) | [n/a](https://bitbucket.org/retyui/react-native-ci-cd-compare/addon/pipelines/home) | 1 min 53 sec 🚀 | 3 min 28 sec 🚀 |
+| [Azure DevOps](https://techcommunity.microsoft.com/t5/windows-dev-appconsult/using-azure-devops-to-create-a-ci-cd-pipeline-for-an-android/ba-p/1094422) | [![Azure DevOps builds](https://img.shields.io/azure-devops/build/retyui/d677252b-5812-4ced-958a-f6c53979724a/1)](https://dev.azure.com/retyui/react-native-ci-cd-compare/_build?definitionId=1) | 4 min 4 sec | 6 min 26 sec |
 
 
 ## iOS builds (TODO)
 
 
+## Limitations of CI/CD services
+
+- [App Center Pricing](https://docs.microsoft.com/en-us/appcenter/general/pricing#the-free-tier) **1 build** pipeline per organization or user account, **240 build minutes** per **month**, and up to 30 minutes per build
+
+- [Limitations of Bitbucket Pipelines](https://support.atlassian.com/bitbucket-cloud/docs/limitations-of-bitbucket-pipelines/) build minutes: **50 min/month**, large file storage: 1 GB total, overage protection - not included
+
+- [Gitlab shared runners](https://docs.gitlab.com/ee/user/gitlab_com/#shared-runners) **free** to use for **public open source projects** and limited to **2000 CI minutes per month** per group for **private projects**
+
+- [CircleCI](https://circleci.com/pricing/) **2,500 free credits/week**, run 1 job at a time, build on Linux and Windows
+
+- [Github Actions](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions#about-billing-for-github-actions) GitHub Actions usage is **free for public repositories** and self-hosted runners
+
+- [Azure DevOps](https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/) 1 Microsoft-hosted job with **1,800 minutes per month** for CI/CD and 1 self-hosted job with unlimited minutes per month
+
+- [Travis CI](https://travis-ci.com/account/plan?billingStep=1)  provide [5 concurrent builds](https://twitter.com/travisci/status/651856122559774722) for open source builds, 10000 Credits, Unlimited unique users, Private & Open-Source repos, Linux, Windows, macOS
+
+
+- [Bitrise](https://www.bitrise.io/pricing) 1 concurrency, 200 builds / month, timeout at 30 min / build
+
+- [Buddy](https://buddy.works/pricing) **120** pipeline runs / month, cache storage - 512 MB, RAM & vCPU - 1 GB RAM & 2 vCPU, concurrent pipelines - 1, parallel actions - 1, 
+
+- [Nevercode](https://nevercode.io/pricing/) is transitioning to Codemagic January 1, 2021
+
+- [Codemagic](https://codemagic.io/pricing/) **500** macOS standard VM **minutes every month**, 1 build at a time
+
+- [appcircle](https://appcircle.io/pricing/) 1 Concurrent Build, 25 minutes max build time per build
