@@ -13,6 +13,7 @@ workflows:
             - ~/.cache/yarn/v6
 
         scripts:
+            - npx envinfo
             - yarn install --frozen-lockfile
             - echo "sdk.dir=$HOME/programs/android-sdk-macosx" > "$FCI_BUILD_DIR/android/local.properties"
             - cd android && ./gradlew bundleRelease assembleRelease

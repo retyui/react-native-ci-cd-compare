@@ -6,6 +6,7 @@ stages:
 default:
   interruptible: true
   before_script:
+    - npx envinfo
     - yarn install --frozen-lockfile
 
 cache:

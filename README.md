@@ -18,6 +18,8 @@ Then I add a lot of native libraries to check how it cause build time (see colum
 | [Nevercode](https://nevercode.io/blog/continuous-integration-for-react-native/) | [![Nevercode build status](https://app.nevercode.io/api/projects/8b869647-61e1-43bf-bc3e-c630f6099205/workflows/b81b5cb7-0ebe-43d1-92e0-81261d790fcc/status_badge.svg?branch=main)](https://app.nevercode.io/#/project/8b869647-61e1-43bf-bc3e-c630f6099205) | 11 min 4 sec | 13 min 22 sec |
 | [appcircle](https://appcircle.io/blog/guide-to-automated-mobile-ci-cd-for-react-native-appcircle/) | [n/a](https://my.appcircle.io/build/detail/f552b6ad-96fd-43fe-bffc-55f4268ee0d4) | 7 min 16 sec | 10 min 53 sec | 
 | [Gitlab CI/CD](https://docs.gitlab.com/ee/ci/) | [![GitLab CI status](https://gitlab.com/retyui/react-native-ci-cd-compare/badges/main/pipeline.svg)](https://gitlab.com/retyui/react-native-ci-cd-compare/-/jobs) | 7 min 44 sec | 12 min 47 sec |
+| [Bitbucket Pipelines](https://bitbucket.org/product/ru/features/pipelines) | [![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/retyui/react-native-ci-cd-compare/main)](https://bitbucket.org/retyui/react-native-ci-cd-compare/addon/pipelines/home) | 1 min 53 sec 🚀 | 3 min 28 sec 🚀 |
+| [Azure DevOps](https://techcommunity.microsoft.com/t5/windows-dev-appconsult/using-azure-devops-to-create-a-ci-cd-pipeline-for-an-android/ba-p/1094422) | [![Azure DevOps builds](https://img.shields.io/azure-devops/build/retyui/d677252b-5812-4ced-958a-f6c53979724a/1)](https://dev.azure.com/retyui/react-native-ci-cd-compare/_build?definitionId=1) | 4 min 4 sec | ? |
 
 
 ## iOS builds (TODO)

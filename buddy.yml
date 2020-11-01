@@ -16,6 +16,7 @@
         - "export BUILD_TOOLS_VER=\"28.0.3\""
         - "export PATH=$PATH:/opt/android/sdk/build-tools/$BUILD_TOOLS_VER"
         - "#build"
+        - "npx envinfo"
         - "npm i -g yarn"
         - "yarn install --frozen-lockfile"
         - "cd ./android"
