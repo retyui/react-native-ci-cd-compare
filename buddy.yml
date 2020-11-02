@@ -1,5 +1,5 @@
 - pipeline: "build android"
-  trigger_mode: "ON_EVERY_PUSH"
+  trigger_mode: "MANUAL"
   ref_name: "*"
   ref_type: "WILDCARD"
   fetch_all_refs: true
@@ -13,7 +13,7 @@
       docker_image_tag: "8"
       execute_commands:
         - "export ANDROID_HOME=\"/opt/android/sdk/\""
-        - "export BUILD_TOOLS_VER=\"28.0.3\""
+        - "export BUILD_TOOLS_VER=\"29.0.2\""
         - "export PATH=$PATH:/opt/android/sdk/build-tools/$BUILD_TOOLS_VER"
         - "#build"
         - "npm i -g yarn"
@@ -32,7 +32,7 @@
         - "/opt/android/sdk/tools/bin/sdkmanager \"extras;android;m2repository\" > /dev/null"
         - "/opt/android/sdk/tools/bin/sdkmanager \"extras;google;m2repository\" > /dev/null"
         - "/opt/android/sdk/tools/bin/sdkmanager \"extras;google;google_play_services\" > /dev/null"
-        - "/opt/android/sdk/tools/bin/sdkmanager \"build-tools;28.0.3\" > /dev/null"
+        - "/opt/android/sdk/tools/bin/sdkmanager \"build-tools;29.0.2\" > /dev/null"
         - "/opt/android/sdk/tools/bin/sdkmanager \"platforms;android-29\" > /dev/null"
         - "# install nodejs"
         - "curl -sL https://deb.nodesource.com/setup_12.x | bash -"

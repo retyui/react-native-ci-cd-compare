@@ -584,5 +584,30 @@ Browsers:
 ### Buddy
 
 ```shell script
-# my accoutn was flagged ;)
+System:
+  OS: Linux 4.15 Debian GNU/Linux 10 (buster) 10 (buster)
+  CPU: (16) x64 Intel(R) Xeon(R) Platinum 8124M CPU @ 3.00GHz
+  Memory: 1.81 GB / 30.41 GB
+  Container: Yes
+  Shell: 5.0.3 - /bin/bash
+Binaries:
+  Node: 12.19.0 - /tmp/yarn--1604305469584-0.624346063139581/node
+  Yarn: 1.22.10 - /tmp/yarn--1604305469584-0.624346063139581/yarn
+  npm: 6.14.8 - /usr/bin/npm
+Managers:
+  Apt: 1.8.2.1 - /usr/bin/apt
+Utilities:
+  Git: 2.20.1 - /usr/bin/git
+  Mercurial: 4.8.2 - /usr/bin/hg
+  Subversion: 1.10.4 - /usr/bin/svn
+SDKs:
+  Android SDK:
+    API Levels: 29
+    Build Tools: 29.0.2
+Languages:
+  Bash: 5.0.3 - /bin/bash
+  Java: 1.8.0_272 - /usr/local/openjdk-8/bin/javac
+  Perl: 5.28.1 - /usr/bin/perl
+  Python: 2.7.16 - /usr/bin/python
+  Python3: 3.7.3 - /usr/bin/python3
 ```
