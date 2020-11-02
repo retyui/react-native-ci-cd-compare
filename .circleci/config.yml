@@ -26,6 +26,30 @@ jobs:
           paths:
             - node_modules
 
+  ios-build:
+    working_directory: ~/app/android
+    macos:
+      xcode: 11.3.0
+
+    steps:
+      - checkout:
+          path: ~/app
+      - attach_workspace:
+          at: ~/app
+      - run: yarn install --frozen-lockfile
+      - restore_cache:
+          key: pods-v1-{{ checksum "ios/Podfile.lock" }}-{{ arch }}
+      - run:
+          command: pod install
+          working_directory: ios
+      - run:
+          command: xcodebuild clean archive -workspace testCiCdReactNative.xcworkspace -scheme testCiCdReactNative -archivePath testCiCdReactNative.xcarchive CODE_SIGNING_ALLOWED=NO
+          working_directory: ios
+      - save_cache:
+          key: pods-v1-{{ checksum "ios/Podfile.lock" }}-{{ arch }}
+          paths:
+            - ios/Pods
+
   android-build:
     working_directory: ~/app/android
     docker:
@@ -50,5 +74,8 @@ workflows:
     jobs:
       - node
       - android-build:
+          requires:
+            - node
+      - ios-build:
           requires:
             - node
