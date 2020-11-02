@@ -10,8 +10,7 @@ Then I add a lot of native libraries to check how it cause build time (see colum
 
 
 - [Environment information ENVINFO.md](#environment-information-envinfomd)
-- [Android builds](#android-builds)
-- [iOS builds (TODO)](#ios-builds-todo)
+- [Builds speed](#builds-speed)
 - [Limitations of CI/CD services](#limitations-of-cicd-services)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -19,13 +18,13 @@ Then I add a lot of native libraries to check how it cause build time (see colum
 
 ## Environment information [ENVINFO.md](ENVINFO.md) 
 
-## Android builds
+## Builds speed
 
 | CI | Status | Android | iOS |
 |---|---|---|---|
 | [AppCenter](https://appcenter.ms/) | [![appcenter](https://build.appcenter.ms/v0.1/apps/160707ba-61e6-4bca-a26c-a9e6927ae70a/branches/main/badge)](https://appcenter.ms/users/offantik/apps/Android-CI-CD-test/build/branches/main) | 3m25s/6m22s | 19m21s/22s12s |
 | [Travis CI](https://docs.travis-ci.com/user/languages/android/) | [![Build Status](https://travis-ci.org/retyui/react-native-ci-cd-compare.svg?branch=main)](https://travis-ci.org/retyui/react-native-ci-cd-compare) | 3m29s/6m38s | |
-| [Circle CI](https://circleci.com/circleci-react/) | [![CircleCI](https://circleci.com/gh/retyui/react-native-ci-cd-compare.svg?style=svg)](https://circleci.com/gh/retyui/react-native-ci-cd-compare) | 2m22s/4m19s 🚀 | |
+| [Circle CI](https://circleci.com/circleci-react/) | [![CircleCI](https://circleci.com/gh/retyui/react-native-ci-cd-compare.svg?style=svg)](https://circleci.com/gh/retyui/react-native-ci-cd-compare) | 2m22s/4m19s 🚀 | n/a |
 | [GitHub Actions](https://github.com/features/actions) | [![Build Android](https://github.com/retyui/react-native-ci-cd-compare/workflows/Build%20Android/badge.svg)](https://github.com/retyui/react-native-ci-cd-compare/actions/) | 2m44s/4m56s 🚀 | 13m53s/ |
 | [Bitrise](https://devcenter.bitrise.io/getting-started/getting-started-with-react-native-apps/) | [![Build Status](https://app.bitrise.io/app/6763bd2429233088/status.svg?token=4XQvHAYUO0CNdNq683DupA)](https://app.bitrise.io/app/6763bd2429233088) | 3m16s/10m57s | |
 | [Codemagic](https://codemagic.io/react-native-continuous-integration/) | [n/a](https://codemagic.io/app/5f9d65de4758a77daf27b4d4) | 5m18s/6m58s | |
@@ -35,9 +34,6 @@ Then I add a lot of native libraries to check how it cause build time (see colum
 | [Gitlab CI/CD](https://docs.gitlab.com/ee/ci/) | [![GitLab CI status](https://gitlab.com/retyui/react-native-ci-cd-compare/badges/main/pipeline.svg)](https://gitlab.com/retyui/react-native-ci-cd-compare/-/jobs) | 7m44s/12m47s | |
 | [Bitbucket Pipelines](https://bitbucket.org/product/ru/features/pipelines) | [n/a](https://bitbucket.org/retyui/react-native-ci-cd-compare/addon/pipelines/home) | 1m53s/3m28s 🚀 | |
 | [Azure DevOps](https://techcommunity.microsoft.com/t5/windows-dev-appconsult/using-azure-devops-to-create-a-ci-cd-pipeline-for-an-android/ba-p/1094422) | [![Build Status](https://dev.azure.com/retyui/react-native-ci-cd-compare/_apis/build/status/retyui.react-native-ci-cd-compare?branchName=refs%2Fpull%2F1%2Fmerge)](https://dev.azure.com/retyui/react-native-ci-cd-compare/_build/latest?definitionId=1&branchName=refs%2Fpull%2F1%2Fmerge) | 4m4s/6m26s | |
-
-
-## iOS builds (TODO)
 
 
 ## Limitations of CI/CD services

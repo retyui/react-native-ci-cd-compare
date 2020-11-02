@@ -1,54 +1,75 @@
-language: android
-dist : trusty
-jdk: oraclejdk8
-sudo: required
+matrix:
+  include:
+    - os: osx
+      podfile: ios/Podfile
+      language: objective-c
+      osx_image: xcode12
+
+      cache:
+        yarn: true
+        cocoapods: true
+        directories:
+          - node_modules
+          - ~/Library/Caches/CocoaPods
+          - ~/.cocoapods
+
+      script:
+        - cd ios
+        - pod install
+        - xcodebuild clean archive -workspace testCiCdReactNative.xcworkspace -scheme testCiCdReactNative -archivePath testCiCdReactNative.xcarchive CODE_SIGNING_ALLOWED=NO | xcpretty
+
+    - os: linux
+      language: android
+      dist: trusty
+      jdk: oraclejdk8
+      sudo: required
+
+      licenses:
+        - 'android-sdk-preview-license-52d11cd2'
+        - 'android-sdk-license-.+'
+        - 'google-gdk-license-.+'
+
+      android:
+        components:
+          # Uncomment the lines below if you want to
+          # use the latest revision of Android SDK Tools
+          # - tools
+          # - platform-tools
+
+          # The SDK version used to compile your project, see `compileSdkVersion` in (android/build.gradle)
+          - android-29
+
+          # The BuildTools version used by your project
+          - build-tools-29.0.2
+
+          # Additional components
+          - extra-google-google_play_services
+          - extra-google-m2repository
+          - extra-android-m2repository
+
+          # Specify at least one system image,
+          # if you need to run emulator(s) during your tests
+          # - sys-img-x86-android-26
+          # - sys-img-armeabi-v7a-android-17
+
+      before_cache:
+        - rm -rf $HOME/.gradle/caches/modules-2/modules-2.lock
+        - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
+
+      cache:
+        yarn: true
+        directories:
+          - $HOME/.gradle/caches/
+          - $HOME/.gradle/wrapper/
+          - node_modules
+
+      script:
+        - cd android && ./gradlew bundleRelease assembleRelease
 
 env:
   global:
     - NODE_VERSION=14
 
-licenses:
-  - 'android-sdk-preview-license-52d11cd2'
-  - 'android-sdk-license-.+'
-  - 'google-gdk-license-.+'
-
-android:
-  components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    # - tools
-    # - platform-tools
-
-    # The SDK version used to compile your project, see `compileSdkVersion` in (android/build.gradle)
-    - android-29
-
-    # The BuildTools version used by your project
-    - build-tools-29.0.2
-
-    # Additional components
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
-
-    # Specify at least one system image,
-    # if you need to run emulator(s) during your tests
-    # - sys-img-x86-android-26
-    # - sys-img-armeabi-v7a-android-17
-
-before_cache:
-  - rm -rf $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
-
-cache:
-  yarn: true
-  directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-    - node_modules
-
 install:
   - nvm install $NODE_VERSION && nvm use $NODE_VERSION && nvm alias default $NODE_VERSION && node --version && npm i -g yarn
   - yarn install --frozen-lockfile
-
-script:
-  - cd android && ./gradlew bundleRelease assembleRelease

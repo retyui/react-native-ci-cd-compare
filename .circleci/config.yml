@@ -43,7 +43,7 @@ jobs:
           command: pod install
           working_directory: ios
       - run:
-          command: xcodebuild clean archive -workspace testCiCdReactNative.xcworkspace -scheme testCiCdReactNative -archivePath testCiCdReactNative.xcarchive CODE_SIGNING_ALLOWED=NO
+          command: xcodebuild clean archive -workspace testCiCdReactNative.xcworkspace -scheme testCiCdReactNative -archivePath testCiCdReactNative.xcarchive CODE_SIGNING_ALLOWED=NO | xcpretty
           working_directory: ios
       - save_cache:
           key: pods-v1-{{ checksum "ios/Podfile.lock" }}-{{ arch }}

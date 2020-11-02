@@ -3,17 +3,21 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
+
 - [Azure DevOps](#azure-devops)
 - [Bitbucket Pipelines](#bitbucket-pipelines)
 - [Gitlab CI](#gitlab-ci)
 - [Codemagic](#codemagic)
 - [Bitrise](#bitrise)
-- [Github Actions](#github-actions)
+- [Github Actions (android)](#github-actions-android)
+- [Github Actions (ios)](#github-actions-ios)
 - [CircleCI](#circleci)
-- [Travis CI](#travis-ci)
+- [Travis CI (ios)](#travis-ci-ios)
+- [Travis CI (android)](#travis-ci-android)
 - [Appcircle](#appcircle)
 - [Nevercode](#nevercode)
-- [AppCenter](#appcenter)
+- [AppCenter (ios)](#appcenter-ios)
+- [AppCenter (android)](#appcenter-android)
 - [Buddy](#buddy)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -431,7 +435,59 @@ Databases:
   SQLite: 3.32.2 - /opt/android/sdk/platform-tools/sqlite3
 ```
 
-### Travis CI
+### Travis CI (ios)
+
+```shell script
+System:
+  OS: macOS 10.15.7
+  CPU: (2) x64 Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz
+  Memory: 955.05 MB / 4.00 GB
+  Shell: 3.2.57 - /bin/bash
+Binaries:
+  Node: 14.15.0 - /var/folders/z3/_825pg0s3jvf0hb_q8kzmg5h0000gn/T/yarn--1604348845540-0.009586636748001531/node
+  Yarn: 1.22.10 - /var/folders/z3/_825pg0s3jvf0hb_q8kzmg5h0000gn/T/yarn--1604348845540-0.009586636748001531/yarn
+  npm: 6.14.8 - ~/.nvm/versions/node/v14.15.0/bin/npm
+Managers:
+  CocoaPods: 1.9.3 - /Users/travis/.rvm/gems/ruby-2.6.6/bin/pod
+  Homebrew: 2.5.3 - /usr/local/bin/brew
+  Maven: 3.6.3 - /usr/local/bin/mvn
+  pip2: 19.3.1 - /usr/local/bin/pip2
+  pip3: 20.1.1 - /usr/local/bin/pip3
+  RubyGems: 3.0.3 - /Users/travis/.rvm/rubies/ruby-2.6.6/bin/gem
+Utilities:
+  CMake: 3.18.3 - /usr/local/bin/cmake
+  Make: 3.81 - /usr/bin/make
+  GCC: 12.0.1. - /usr/bin/gcc
+  Git: 2.28.0 - /usr/local/bin/git
+  Clang: 1200.0.32.2 - /usr/bin/clang
+  Mercurial: 5.5.2 - /usr/local/bin/hg
+Servers:
+  Apache: 2.4.41 - /usr/sbin/apachectl
+SDKs:
+  iOS SDK:
+    Platforms: iOS 14.0, DriverKit 19.0, macOS 10.15, tvOS 14.0, watchOS 7.0
+IDEs:
+  Nano: 2.0.6 - /usr/bin/nano
+  Vim: 8.1 - /usr/bin/vim
+  Xcode: 12.0.1/12A7300 - /usr/bin/xcodebuild
+Languages:
+  Bash: 3.2.57 - /bin/bash
+  Go: 1.15.2 - /usr/local/bin/go
+  Java: 14.0.2 - /usr/bin/javac
+  Perl: 5.18.4 - /usr/bin/perl
+  PHP: 7.3.11 - /usr/bin/php
+  Protoc: 3.13.0 - /usr/local/bin/protoc
+  Python: 2.7.17 - /usr/local/bin/python
+  Python3: 3.8.5 - /usr/local/bin/python3
+  Ruby: 2.6.6 - /Users/travis/.rvm/rubies/ruby-2.6.6/bin/ruby
+Databases:
+  PostgreSQL: 12.4 - /usr/local/bin/postgres
+  SQLite: 3.28.0 - /usr/bin/sqlite3
+Browsers:
+  Safari: 14.0
+```
+
+### Travis CI (android)
 
 ```shell script
 System:
