@@ -4,7 +4,8 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Azure DevOps](#azure-devops)
+- [Azure DevOps (ios)](#azure-devops-ios)
+- [Azure DevOps (android)](#azure-devops-android)
 - [Bitbucket Pipelines](#bitbucket-pipelines)
 - [Gitlab CI](#gitlab-ci)
 - [Codemagic](#codemagic)
@@ -22,7 +23,75 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-### Azure DevOps
+### Azure DevOps (ios)
+
+```shell script
+
+System:
+  OS: macOS 10.15.7
+  CPU: (4) x64 Intel(R) Xeon(R) CPU E5-1650 v2 @ 3.50GHz
+  Memory: 2.72 GB / 12.00 GB
+  Shell: 3.2.57 - /bin/bash
+Binaries:
+  Node: 14.15.0 - /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/yarn--1604355072304-0.14836443385570042/node
+  Yarn: 1.22.5 - /var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/yarn--1604355072304-0.14836443385570042/yarn
+  npm: 6.14.8 - ~/hostedtoolcache/node/14.15.0/x64/bin/npm
+Managers:
+  Cargo: 1.47.0 - ~/.cargo/bin/cargo
+  CocoaPods: 1.10.0 - /usr/local/lib/ruby/gems/2.7.0/bin/pod
+  Composer: 2.0.2 - /usr/local/bin/composer
+  Gradle: 6.7 - /usr/local/bin/gradle
+  Homebrew: 2.5.7 - /usr/local/bin/brew
+  Maven: 3.6.3 - /usr/local/bin/mvn
+  pip2: 19.3.1 - /usr/local/bin/pip2
+  pip3: 20.2.3 - /usr/local/bin/pip3
+  RubyGems: 3.1.4 - /usr/local/opt/ruby/bin/gem
+Utilities:
+  Bazel: 3.7.0 - /usr/local/bin/bazel
+  CMake: 3.18.4 - /usr/local/bin/cmake
+  Make: 3.81 - /usr/bin/make
+  GCC: 4.2.1 - /usr/bin/gcc
+  Git: 2.29.1 - /usr/local/bin/git
+  Clang: 1200.0.32.2 - /usr/bin/clang
+  Subversion: 1.14.0 - /usr/local/bin/svn
+Servers:
+  Apache: 2.4.41 - /usr/sbin/apachectl
+Virtualization:
+  VirtualBox: 6.1.16 - /usr/local/bin/vboxmanage
+SDKs:
+  iOS SDK:
+    Platforms: iOS 14.0, DriverKit 19.0, macOS 10.15, tvOS 14.0, watchOS 7.0
+  Android SDK:
+    API Levels: 24, 25, 26, 27, 28, 29, 30
+    Build Tools: 24.0.0, 24.0.1, 24.0.2, 24.0.3, 25.0.0, 25.0.1, 25.0.2, 25.0.3, 26.0.0, 26.0.1, 26.0.2, 26.0.3, 27.0.0, 27.0.1, 27.0.2, 27.0.3, 28.0.0, 28.0.1, 28.0.2, 28.0.3, 29.0.0, 29.0.1, 29.0.2, 29.0.3, 30.0.0, 30.0.1, 30.0.2
+    Android NDK: 21.3.6528147
+IDEs:
+  Nano: 2.0.6 - /usr/bin/nano
+  Vim: 8.1 - /usr/bin/vim
+  Xcode: 12.0.1/12A7300 - /usr/bin/xcodebuild
+Languages:
+  Bash: 3.2.57 - /bin/bash
+  Go: 1.15.3 - /usr/local/bin/go
+  Java: 1.8.0_272 - /usr/bin/javac
+  Perl: 5.32.0 - /usr/local/bin/perl
+  PHP: 7.4.11 - /usr/local/bin/php
+  Python: 2.7.17 - /usr/local/bin/python
+  Python3: 3.8.6 - /usr/local/bin/python3
+  R: 4.0.3 - /usr/local/bin/R
+  Ruby: 2.7.2 - /usr/local/opt/ruby/bin/ruby
+  Rust: 1.47.0 - /Users/runner/.cargo/bin/rustc
+Databases:
+  MongoDB: 4.4.1 - /usr/local/bin/mongo
+  PostgreSQL: 13.0 - /usr/local/bin/postgres
+  SQLite: 3.32.2 - /Users/runner/Library/Android/sdk/platform-tools/sqlite3
+Browsers:
+  Chrome: 86.0.4240.111
+  Edge: 86.0.622.51
+  Firefox: 82.0
+  Safari: 14.0
+```
+
+### Azure DevOps (android)
 
 ```shell script
 System:

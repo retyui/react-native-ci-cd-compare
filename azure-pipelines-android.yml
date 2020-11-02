@@ -1,36 +1,63 @@
 # https://techcommunity.microsoft.com/t5/windows-dev-appconsult/using-azure-devops-to-create-a-ci-cd-pipeline-for-an-android/ba-p/1094422
 # Based on: https://github.com/staff0rd/react-native-pipeline/blob/master/azure-pipelines-android.yml
 
+variables:
+  YARN_CACHE_FOLDER: $(Pipeline.Workspace)/.yarn
+
 trigger:
   - main
 
-pool:
-  vmImage: 'ubuntu-latest'
-
-steps:
+jobs:
+- job: Build_Android
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
   - task: NodeTool@0
     displayName: 'Install Node'
     inputs:
       versionSpec: '14.15.0'
-
-  - script: yarn install
-    displayName: 'Install node dependencies'
-
+  - task: Cache@2
+    inputs:
+      key: 'yarn | "$(Agent.OS)" | yarn.lock'
+      restoreKeys: |
+        yarn | "$(Agent.OS)"
+      path: $(YARN_CACHE_FOLDER)
+    displayName: Cache Yarn packages
+  - script: yarn install --frozen-lockfile
   - task: Gradle@2
     inputs:
       workingDirectory: 'android'
       gradleWrapperFile: 'android/gradlew'
       gradleOptions: '-Xmx3072m'
       tasks: 'bundleRelease assembleRelease'
-
   - task: PublishBuildArtifacts@1
     inputs:
       pathtoPublish: android/app/build/outputs/apk/release/app-release.apk
       artifactName: drop
       publishLocation: 'container'
-
   - task: PublishBuildArtifacts@1
     inputs:
       pathtoPublish: android/app/build/outputs/bundle/release/app-release.aab
       artifactName: drop
       publishLocation: 'container'
+
+
+
+- job: Build_iOS
+  pool:
+    vmImage: 'macOS-latest'
+  steps:
+  - task: NodeTool@0
+    displayName: 'Install Node'
+    inputs:
+      versionSpec: '14.15.0'
+  - task: Cache@2
+    inputs:
+      key: 'yarn | "$(Agent.OS)" | yarn.lock'
+      restoreKeys: |
+        yarn | "$(Agent.OS)"
+      path: $(YARN_CACHE_FOLDER)
+    displayName: Cache Yarn packages
+  - script: yarn install --frozen-lockfile
+  - script: cd ios && pod install
+  - script: cd ios && xcodebuild clean archive -workspace testCiCdReactNative.xcworkspace -scheme testCiCdReactNative -archivePath testCiCdReactNative.xcarchive CODE_SIGNING_ALLOWED=NO | xcpretty
