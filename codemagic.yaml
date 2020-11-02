@@ -1,21 +1,44 @@
 # Check out https://docs.codemagic.io/getting-started/building-a-react-native-app/ for more information
 
 workflows:
-    react-native-android:
-        name: React Native CI/CD compare
-        # `mac_pro` - Building on Mac Pro is a paid feature. Please enable billing to run builds on Mac Pro.
-        instance_type:  mac_mini
-        environment:
-            node: latest
-        cache:
-          cache_paths:
-            - ~/.gradle/caches
-            - ~/.cache/yarn/v6
+  react-native-ios:
+    name: iOS Workflow
+    max_build_duration: 60
+    instance_type: mac_mini
+    environment:
+      node: latest
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: Install npm dependencies
+        script: yarn install --frozen-lockfile
+      - name: Install CocoaPods dependencies
+        script: |
+          cd ios
+          pod repo update
+          pod install
+      - name: xCode build
+        script: |
+          cd ios
+          xcodebuild clean archive -workspace testCiCdReactNative.xcworkspace -scheme testCiCdReactNative -archivePath testCiCdReactNative.xcarchive CODE_SIGNING_ALLOWED=NO | xcpretty
+    artifacts:
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM
 
-        scripts:
-            - yarn install --frozen-lockfile
-            - echo "sdk.dir=$HOME/programs/android-sdk-macosx" > "$FCI_BUILD_DIR/android/local.properties"
-            - cd android && ./gradlew bundleRelease assembleRelease
-        artifacts:
-            - android/app/build/outputs/**/*.apk
-            - android/app/build/outputs/**/*.aab
+  react-native-android:
+      name: Android Workflow
+      # `mac_pro` - Building on Mac Pro is a paid feature. Please enable billing to run builds on Mac Pro.
+      instance_type:  mac_mini
+      environment:
+          node: latest
+      cache:
+        cache_paths:
+          - ~/.gradle/caches
+          - ~/.cache/yarn/v6
+
+      scripts:
+          - yarn install --frozen-lockfile
+          - echo "sdk.dir=$HOME/programs/android-sdk-macosx" > "$FCI_BUILD_DIR/android/local.properties"
+          - cd android && ./gradlew bundleRelease assembleRelease
+      artifacts:
+          - android/app/build/outputs/**/*.apk
+          - android/app/build/outputs/**/*.aab
