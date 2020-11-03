@@ -39,6 +39,7 @@ workflows:
       - yarn@0:
           inputs:
             - command: install
+      - cocoapods-install@1: {}
       - script@1:
           inputs:
             - content: >-
@@ -56,18 +57,15 @@ workflows:
                 cd ios
 
 
-                xcodebuild clean archive -workspace testCiCdReactNative.xcworkspace
-                -scheme testCiCdReactNative -archivePath
-                testCiCdReactNative.xcarchive CODE_SIGNING_ALLOWED=NO | xcpretty
+                xcodebuild clean archive -workspace
+                testCiCdReactNative.xcworkspace -scheme testCiCdReactNative
+                -archivePath testCiCdReactNative.xcarchive CODE_SIGNING_ALLOWED=NO
           title: xCode build
       - deploy-to-bitrise-io@1: {}
       - cache-push@2:
           inputs:
             - compress_archive: 'true'
             - is_debug_mode: 'true'
-    meta:
-      bitrise.io:
-        stack: linux-docker-android
 app:
   envs:
     - opts:
