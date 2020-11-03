@@ -5,46 +5,86 @@ project_type: react-native
 workflows:
   build_android:
     steps:
-    - activate-ssh-key@4:
-        run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
-    - git-clone@4: {}
-    - cache-pull@2:
-        inputs:
-        - is_debug_mode: 'true'
-    - yarn@0:
-        inputs:
-        - command: install
-    - install-missing-android-tools@2:
-        inputs:
-        - gradlew_path: $PROJECT_LOCATION/gradlew
-    - android-build@0:
-        inputs:
-        - project_location: $PROJECT_LOCATION
-    - deploy-to-bitrise-io@1: {}
-    - cache-push@2:
-        inputs:
-        - compress_archive: 'true'
-        - is_debug_mode: 'true'
+      - activate-ssh-key@4:
+          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+      - git-clone@4: {}
+      - cache-pull@2:
+          inputs:
+            - is_debug_mode: 'true'
+      - yarn@0:
+          inputs:
+            - command: install
+      - install-missing-android-tools@2:
+          inputs:
+            - gradlew_path: $PROJECT_LOCATION/gradlew
+      - android-build@0:
+          inputs:
+            - project_location: $PROJECT_LOCATION
+      - deploy-to-bitrise-io@1: {}
+      - cache-push@2:
+          inputs:
+            - compress_archive: 'true'
+            - is_debug_mode: 'true'
+    meta:
+      bitrise.io:
+        stack: linux-docker-android
+  build_ios:
+    steps:
+      - activate-ssh-key@4:
+          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+      - git-clone@4: {}
+      - cache-pull@2:
+          inputs:
+            - is_debug_mode: 'true'
+      - yarn@0:
+          inputs:
+            - command: install
+      - script@1:
+          inputs:
+            - content: >-
+                #!/usr/bin/env bash
+
+                # fail if any commands fails
+
+                set -e
+
+                # debug log
+
+                set -x
+
+
+                cd ios
+
+
+                xcodebuild clean archive -workspace testCiCdReactNative.xcworkspace
+                -scheme testCiCdReactNative -archivePath
+                testCiCdReactNative.xcarchive CODE_SIGNING_ALLOWED=NO | xcpretty
+          title: xCode build
+      - deploy-to-bitrise-io@1: {}
+      - cache-push@2:
+          inputs:
+            - compress_archive: 'true'
+            - is_debug_mode: 'true'
     meta:
       bitrise.io:
         stack: linux-docker-android
 app:
   envs:
-  - opts:
-      is_expand: false
-    PROJECT_LOCATION: android
-  - opts:
-      is_expand: false
-    MODULE: app
-  - opts:
-      is_expand: false
-    VARIANT: ''
-  - opts:
-      is_expand: false
-    BITRISE_PROJECT_PATH: ios/testCiCdReactNative.xcodeproj
-  - opts:
-      is_expand: false
-    BITRISE_SCHEME: testCiCdReactNative
-  - opts:
-      is_expand: false
-    BITRISE_EXPORT_METHOD: development
+    - opts:
+        is_expand: false
+      PROJECT_LOCATION: android
+    - opts:
+        is_expand: false
+      MODULE: app
+    - opts:
+        is_expand: false
+      VARIANT: ''
+    - opts:
+        is_expand: false
+      BITRISE_PROJECT_PATH: ios/testCiCdReactNative.xcodeproj
+    - opts:
+        is_expand: false
+      BITRISE_SCHEME: testCiCdReactNative
+    - opts:
+        is_expand: false
+      BITRISE_EXPORT_METHOD: development
