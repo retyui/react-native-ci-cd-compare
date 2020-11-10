@@ -371,45 +371,55 @@ Browsers:
 
 ```shell script
 System:
-  OS: Linux 4.4 Ubuntu 16.04.7 LTS (Xenial Xerus)
-  CPU: (2) x64 Intel(R) Xeon(R) CPU @ 2.30GHz
-  Memory: 1.83 GB / 7.30 GB
-  Container: Yes
-  Shell: 4.3.48 - /bin/bash
+  OS: macOS 10.15.5
+  CPU: (2) x64 Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz
+  Memory: 1.07 GB / 4.00 GB
+  Shell: 5.7.1 - /bin/zsh
 Binaries:
-  Node: 12.19.0 - /tmp/yarn--1604420560477-0.4718524656815213/node
-  Yarn: 1.22.5 - /tmp/yarn--1604420560477-0.4718524656815213/yarn
-  npm: 6.13.4 - /usr/bin/npm
+  Node: 12.19.0 - /var/folders/6q/wgy6jtp12w5gzgm9lzcglpqw0000gn/T/yarn--1604426889953-0.2667113892090922/node
+  Yarn: 1.22.10 - /var/folders/6q/wgy6jtp12w5gzgm9lzcglpqw0000gn/T/yarn--1604426889953-0.2667113892090922/yarn
+  npm: 6.14.8 - /usr/local/bin/npm
+  Watchman: 4.9.0 - /usr/local/bin/watchman
 Managers:
-  Apt: 1.2.32 - /usr/bin/apt
-  Gradle: 6.3 - /opt/gradle/gradle-6.3/bin/gradle
-  Maven: 3.3.9 - /usr/bin/mvn
-  pip2: 8.1.1 - /usr/bin/pip2
-  RubyGems: 3.1.4 - /usr/local/bin/gem
+  CocoaPods: 1.9.1 - /Users/vagrant/.rbenv/shims/pod
+  Gradle: 6.7 - /usr/local/bin/gradle
+  Homebrew: 2.5.7 - /usr/local/bin/brew
+  Maven: 3.6.3 - /usr/local/bin/mvn
+  pip3: 20.2.4 - /usr/local/bin/pip3
+  RubyGems: 3.0.3 - /Users/vagrant/.rbenv/shims/gem
 Utilities:
-  Make: 4.1 - /usr/bin/make
-  GCC: 5.4.0 - /usr/bin/gcc
-  Git: 2.7.4 - /usr/bin/git
-  Clang: 3.8.0-2ubuntu4 - /usr/bin/clang
-  Mercurial: 3.7.3 - /usr/bin/hg
-Virtualization:
-  Docker: 19.03.13 - /usr/bin/docker
+  Make: 3.81 - /usr/bin/make
+  GCC: 12.2. - /usr/bin/gcc
+  Git: 2.28.0 - /usr/local/bin/git
+  Clang: 1200.0.32.27 - /usr/bin/clang
+  Mercurial: 5.5.2 - /usr/local/bin/hg
+Servers:
+  Apache: 2.4.41 - /usr/sbin/apachectl
 SDKs:
+  iOS SDK:
+    Platforms: iOS 14.2, DriverKit 20.0, macOS 11.0, tvOS 14.2, watchOS 7.1
   Android SDK:
     API Levels: 15, 17, 19, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30
     Build Tools: 19.1.0, 21.1.2, 22.0.1, 23.0.3, 24.0.3, 25.0.3, 26.0.1, 26.0.2, 27.0.0, 27.0.1, 27.0.2, 27.0.3, 28.0.0, 28.0.1, 28.0.2, 28.0.3, 29.0.0, 29.0.1, 29.0.2, 29.0.3, 30.0.0
-    System Images: android-19 | ARM EABI v7a, android-22 | ARM EABI v7a, android-24 | ARM EABI v7a, android-25 | Google APIs ARM EABI v7a, android-26 | Google APIs Intel x86 Atom, android-28 | Google APIs Intel x86 Atom_64, android-29 | Google APIs Intel x86 Atom, android-30 | Google APIs Intel x86 Atom
-    Android NDK: 21.3.6528147
+    System Images: android-26 | Google APIs Intel x86 Atom, android-28 | Google APIs Intel x86 Atom_64, android-29 | Google APIs Intel x86 Atom, android-30 | Google APIs Intel x86 Atom
+    Android NDK: 21.0.6113669
+IDEs:
+  Nano: 2.0.6 - /usr/bin/nano
+  Vim: 8.1 - /usr/bin/vim
+  Xcode: 12.2/12B5035g - /usr/bin/xcodebuild
 Languages:
-  Bash: 4.3.48 - /bin/bash
-  Go: 1.15.2 - /usr/local/go/bin/go
-  Java: 1.8.0_272 - /usr/bin/javac
-  Perl: 5.22.1 - /usr/bin/perl
-  Python: 2.7.12 - /usr/bin/python
-  Python3: 3.5.2 - /usr/bin/python3
-  Ruby: 2.7.0 - /usr/local/bin/ruby
+  Bash: 3.2.57 - /bin/bash
+  Go: 1.15.3 - /usr/local/bin/go
+  Java: 1.8.0_272 - /Users/vagrant/.jenv/shims/javac
+  Perl: 5.18.4 - /usr/bin/perl
+  PHP: 7.3.11 - /usr/bin/php
+  Python: 2.7.16 - /usr/bin/python
+  Python3: 3.8.6 - /usr/local/bin/python3
+  Ruby: 2.6.5 - /Users/vagrant/.rbenv/shims/ruby
 Databases:
-  SQLite: 3.32.2 - /opt/android-sdk-linux/platform-tools/sqlite3
+  SQLite: 3.28.0 - /usr/bin/sqlite3
+Browsers:
+  Safari: 13.1.1
 ```
 
 ### Bitrise (android)
