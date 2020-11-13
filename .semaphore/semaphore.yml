@@ -4,12 +4,19 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+  containers:
+    - name: main
+      image: 'registry.semaphoreci.com/android:29-node'
 blocks:
-  - name: Gradle
+  - name: Bundle android
     task:
       jobs:
-        - name: Build
+        - name: yarn install and cache
           commands:
             - checkout
-            - sem-version java 1.8
-            - ./gradlew build
+            - cache restore yarn-$(checksum yarn.lock)
+            - yarn install --frozen-lockfile
+            - cache store yarn-$(checksum yarn.lock) node_modules
+        - name: run gradlew
+          commands:
+            - cd android && chmod +x gradlew && ./gradlew bundleRelease assembleRelease
