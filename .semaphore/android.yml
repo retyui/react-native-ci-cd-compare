@@ -1,0 +1,24 @@
+version: v1.0
+name: React Native Android
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+  containers:
+    - name: main
+      image: 'registry.semaphoreci.com/android:29-node'
+
+blocks:
+  - name: Bundle android
+    task:
+      jobs:
+        - name: install & build
+          commands:
+            - checkout
+            - npm i -g yarn
+            - cache restore yarn-$(checksum yarn.lock)
+            - yarn install --frozen-lockfile
+            - cache store yarn-$(checksum yarn.lock) node_modules
+            - cd android
+            - ./gradlew bundleRelease assembleRelease
+            - artifact push job app/build/outputs

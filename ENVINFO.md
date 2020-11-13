@@ -21,6 +21,8 @@
 - [CircleCI (android)](#circleci-android)
 - [Codemagic (android)](#codemagic-android)
 - [Gitlab CI (android)](#gitlab-ci-android)
+- [Semaphore CI (ios)](#semaphore-ci-ios)
+- [Semaphore CI (android)](#semaphore-ci-android)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -906,3 +908,90 @@ Databases:
   SQLite: 3.32.2 - /opt/android/sdk/platform-tools/sqlite3
 ```
 
+### Semaphore CI (ios)
+
+```shell script
+System:00:04
+  OS: macOS 10.15.400:04
+  CPU: (4) x64 Intel(R) Xeon(R) CPU E5-2697 v2 @ 2.70GHz00:04
+  Memory: 5.12 GB / 8.00 GB00:04
+  Shell: 3.2.57 - /bin/bash00:04
+Binaries:00:04
+  Node: 13.12.0 - /var/folders/rg/92ky7bj54xj6pcv5l24g6l_00000gn/T/yarn--1605385389338-0.7070170598948544/node00:04
+  Yarn: 1.22.4 - /var/folders/rg/92ky7bj54xj6pcv5l24g6l_00000gn/T/yarn--1605385389338-0.7070170598948544/yarn00:04
+  npm: 6.14.4 - /usr/local/bin/npm00:04
+  Watchman: 4.9.0 - /usr/local/bin/watchman00:04
+Managers:00:04
+  CocoaPods: 1.10.0 - /Users/semaphore/.rbenv/shims/pod00:04
+  Homebrew: 2.4.3 - /usr/local/bin/brew00:04
+  pip3: 20.0.2 - /usr/local/bin/pip300:04
+  RubyGems: 2.7.6 - /Users/semaphore/.rbenv/shims/gem00:04
+Utilities:00:04
+  Make: 3.81 - /usr/bin/make00:04
+  GCC: 12.0. - /usr/bin/gcc00:04
+  Git: 2.26.1 - /usr/local/bin/git00:04
+  Clang: 1200.0.22.19 - /usr/bin/clang00:04
+  Subversion: 1.10.4 - /usr/bin/svn00:04
+Servers:00:04
+  Apache: 2.4.41 - /usr/sbin/apachectl00:04
+SDKs:00:04
+  iOS SDK:00:04
+    Platforms: iOS 14.0, DriverKit 20.0, macOS 11.000:04
+IDEs:
+00:04
+  Nano: 2.0.6 - /usr/bin/nano00:04
+  Vim: 8.1 - /usr/bin/vim00:04
+  Xcode: 12.0/12A8158a - /usr/bin/xcodebuild00:04
+Languages:00:04
+  Bash: 3.2.57 - /bin/bash00:04
+  Java: javac 14 - /usr/bin/javac00:04
+  Perl: 5.18.4 - /usr/bin/perl00:04
+  PHP: 7.3.11 - /usr/bin/php00:04
+  Python: 2.7.16 - /usr/bin/python00:04
+  Python3: 3.7.7 - /usr/local/bin/python300:04
+  Ruby: 2.5.1 - /Users/semaphore/.rbenv/shims/ruby00:04
+Databases:00:04
+  SQLite: 3.28.0 - /usr/bin/sqlite300:04
+```
+
+### Semaphore CI (android)
+
+```shell script
+System:
+  OS: Linux 4.15 Debian GNU/Linux 10 (buster) 10 (buster)
+  CPU: (2) x64 Intel Core Processor (Haswell)
+  Memory: 2.02 GB / 3.85 GB
+  Container: Yes
+  Shell: 5.0.3 - /bin/bash
+Binaries:
+  Node: 10.22.1 - /tmp/yarn--1605262512805-0.533221535200799/node
+  Yarn: 1.22.10 - /tmp/yarn--1605262512805-0.533221535200799/yarn
+  npm: 6.14.6 - /usr/bin/npm
+Managers:
+  Apt: 1.8.2.1 - /usr/bin/apt
+  Gradle: 4.4.1 - /usr/bin/gradle
+  Maven: 3.6.0 - /usr/bin/mvn
+  RubyGems: 3.0.1 - /opt/rubies/ruby-2.6.1/bin/gem
+Utilities:
+  Make: 4.2.1 - /usr/bin/make
+  GCC: 8.3.0 - /usr/bin/gcc
+  Git: 2.20.1 - /usr/bin/git
+  Mercurial: 4.8.2 - /usr/bin/hg
+Virtualization:
+  Docker: 19.03.9 - /usr/bin/docker
+SDKs:
+  Android SDK:
+    API Levels: 25, 26, 27, 28, 29
+    Build Tools: 25.0.3, 26.0.1, 26.0.2, 27.0.0, 27.0.1, 27.0.2, 27.0.3, 28.0.0, 28.0.1, 28.0.2, 28.0.3, 29.0.1, 29.0.2
+IDEs:
+  Vim: 8.1 - /usr/bin/vim
+Languages:
+  Bash: 5.0.3 - /bin/bash
+  Java: 1.8.0_272 - /usr/local/openjdk-8/bin/javac
+  Perl: 5.28.1 - /usr/bin/perl
+  Python: 2.7.16 - /usr/bin/python
+  Python3: 3.7.3 - /usr/bin/python3
+  Ruby: 2.6.1 - /opt/rubies/ruby-2.6.1/bin/ruby
+Databases:
+  SQLite: 3.32.2 - /opt/android-sdk-linux/platform-tools/sqlite3
+```
