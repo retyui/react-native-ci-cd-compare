@@ -18,7 +18,6 @@ blocks:
             - cache restore yarn-$(checksum yarn.lock)
             - yarn install --frozen-lockfile
             - cache store yarn-$(checksum yarn.lock) node_modules
-            - cd android && chmod +x gradlew && ./gradlew bundleRelease assembleRelease && cd ..
-            - ls
-            - pwd
-            - artifact push job android/app/build/outputs
+            - cd android
+            - ./gradlew bundleRelease assembleRelease
+            - artifact push job app/build/outputs
