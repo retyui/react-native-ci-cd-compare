@@ -14,6 +14,7 @@ blocks:
         - name: yarn install and cache
           commands:
             - checkout
+            - npm i -g yarn
             - cache restore yarn-$(checksum yarn.lock)
             - yarn install --frozen-lockfile
             - cache store yarn-$(checksum yarn.lock) node_modules
