@@ -129,6 +129,7 @@ android {
     }
 
     defaultConfig {
+        multiDexEnabled true
         applicationId "com.testcicdreactnative"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
@@ -177,6 +178,13 @@ android {
             }
 
         }
+    }
+
+    packagingOptions {
+        pickFirst '**/armeabi-v7a/libc++_shared.so'
+        pickFirst '**/x86/libc++_shared.so'
+        pickFirst '**/arm64-v8a/libc++_shared.so'
+        pickFirst '**/x86_64/libc++_shared.so'
     }
 }
 

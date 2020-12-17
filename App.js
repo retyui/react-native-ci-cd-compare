@@ -9,20 +9,22 @@
 import React from 'react';
 import {
   SafeAreaView,
-  StyleSheet,
   ScrollView,
-  View,
-  Text,
   StatusBar,
+  StyleSheet,
+  Text,
+  View,
 } from 'react-native';
 
 import {
-  Header,
-  LearnMoreLinks,
   Colors,
   DebugInstructions,
+  Header,
+  LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 const App: () => React$Node = () => {
   return (
@@ -111,4 +113,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+const Stack = createStackNavigator();
+
+function Root() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="App" component={App} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
+export {Root};
