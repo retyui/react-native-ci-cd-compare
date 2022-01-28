@@ -10,12 +10,12 @@ trigger:
 jobs:
 - job: Build_Android
   pool:
-    vmImage: 'ubuntu-latest'
+    vmImage: 'ubuntu-20.04'
   steps:
   - task: NodeTool@0
     displayName: 'Install Node'
     inputs:
-      versionSpec: '14.15.0'
+      versionSpec: '16.13.2'
   - task: Cache@2
     inputs:
       key: 'yarn | "$(Agent.OS)" | yarn.lock'
@@ -45,12 +45,12 @@ jobs:
 
 - job: Build_iOS
   pool:
-    vmImage: 'macOS-latest'
+    vmImage: 'macOS-11'
   steps:
   - task: NodeTool@0
     displayName: 'Install Node'
     inputs:
-      versionSpec: '14.15.0'
+      versionSpec: '16.13.2'
   - task: Cache@2
     inputs:
       key: 'yarn | "$(Agent.OS)" | yarn.lock'
