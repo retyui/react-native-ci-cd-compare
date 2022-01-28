@@ -1,3 +1,9 @@
+env:
+  global:
+    - ANDROID_API_LEVEL=30
+    - ANDROID_BUILD_TOOLS_VERSION=30.0.2
+    - NODE_VERSION=16
+
 matrix:
   include:
     - os: osx
@@ -24,33 +30,29 @@ matrix:
       jdk: oraclejdk8
       sudo: required
 
-      licenses:
-        - 'android-sdk-preview-license-52d11cd2'
-        - 'android-sdk-license-.+'
-        - 'google-gdk-license-.+'
+      before_install:
+        - touch $HOME/.android/repositories.cfg
+        # Fix "Failed to install the following Android SDK packages as some licences have not been accepted."
+        - yes | sdkmanager "build-tools;30.0.2"
+        - yes | sdkmanager "platforms;android-30"
 
       android:
-        components:
-          # Uncomment the lines below if you want to
-          # use the latest revision of Android SDK Tools
-          # - tools
-          # - platform-tools
+        licenses:
+          - 'android-sdk-preview-license-52d11cd2'
+          - 'android-sdk-license-.+'
+          - 'google-gdk-license-.+'
 
+        components:
           # The SDK version used to compile your project, see `compileSdkVersion` in (android/build.gradle)
-          - android-29
+          - android-$ANDROID_API_LEVEL
 
           # The BuildTools version used by your project
-          - build-tools-29.0.2
+          - build-tools-$ANDROID_BUILD_TOOLS_VERSION
 
           # Additional components
           - extra-google-google_play_services
           - extra-google-m2repository
           - extra-android-m2repository
-
-          # Specify at least one system image,
-          # if you need to run emulator(s) during your tests
-          # - sys-img-x86-android-26
-          # - sys-img-armeabi-v7a-android-17
 
       before_cache:
         - rm -rf $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -61,14 +63,11 @@ matrix:
         directories:
           - $HOME/.gradle/caches/
           - $HOME/.gradle/wrapper/
+          - $HOME/.android/build-cache/
           - node_modules
 
       script:
         - cd android && ./gradlew bundleRelease assembleRelease
-
-env:
-  global:
-    - NODE_VERSION=14
 
 install:
   - nvm install $NODE_VERSION && nvm use $NODE_VERSION && nvm alias default $NODE_VERSION && node --version && npm i -g yarn
