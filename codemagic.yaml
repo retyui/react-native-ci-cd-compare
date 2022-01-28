@@ -6,16 +6,15 @@ workflows:
     max_build_duration: 60
     instance_type: mac_mini
     environment:
-      node: latest
-      xcode: latest
-      cocoapods: default
+      node: 16.13.2
+      xcode: 13.2.1
+      cocoapods: 1.11.2
     scripts:
       - name: Install npm dependencies
         script: yarn install --frozen-lockfile
       - name: Install CocoaPods dependencies
         script: |
           cd ios
-          pod repo update
           pod install
       - name: xCode build
         script: |
@@ -29,7 +28,7 @@ workflows:
       # `mac_pro` - Building on Mac Pro is a paid feature. Please enable billing to run builds on Mac Pro.
       instance_type:  mac_mini
       environment:
-          node: latest
+          node: 16.13.2
       cache:
         cache_paths:
           - ~/.gradle/caches
