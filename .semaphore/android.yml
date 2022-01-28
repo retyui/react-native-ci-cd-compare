@@ -6,7 +6,7 @@ agent:
     os_image: ubuntu1804
   containers:
     - name: main
-      image: 'registry.semaphoreci.com/android:29-node'
+      image: 'registry.semaphoreci.com/android:30-node'
 
 blocks:
   - name: Bundle android
