@@ -9,7 +9,7 @@ matrix:
     - os: osx
       podfile: ios/Podfile
       language: objective-c
-      osx_image: xcode12
+      osx_image: xcode13.2
 
       cache:
         yarn: true
@@ -22,7 +22,7 @@ matrix:
       script:
         - cd ios
         - pod install
-        - xcodebuild clean archive -workspace testCiCdReactNative.xcworkspace -scheme testCiCdReactNative -archivePath testCiCdReactNative.xcarchive CODE_SIGNING_ALLOWED=NO | xcpretty | grep "Compiling"
+        - xcodebuild clean archive -workspace testCiCdReactNative.xcworkspace -scheme testCiCdReactNative -archivePath testCiCdReactNative.xcarchive CODE_SIGNING_ALLOWED=NO
 
     - os: linux
       language: android

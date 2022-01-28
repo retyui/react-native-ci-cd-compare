@@ -43,7 +43,7 @@ Then I add a lot of native libraries to check how it cause build time
 | [Gitlab CI/CD](https://docs.gitlab.com/ee/ci/) | [![GitLab CI status](https://gitlab.com/retyui/react-native-ci-cd-compare/badges/main/pipeline.svg)](https://gitlab.com/retyui/react-native-ci-cd-compare/-/jobs) | 07m44s / 12m47s | - |
 | [Bitbucket Pipelines](https://bitbucket.org/product/ru/features/pipelines) | [n/a](https://bitbucket.org/retyui/react-native-ci-cd-compare/addon/pipelines/home) | **01m53s / 03m28s** 🚀 | - |
 | [Azure DevOps](https://techcommunity.microsoft.com/t5/windows-dev-appconsult/using-azure-devops-to-create-a-ci-cd-pipeline-for-an-android/ba-p/1094422) | [![Build Status](https://dev.azure.com/retyui/react-native-ci-cd-compare/_apis/build/status/retyui.react-native-ci-cd-compare?branchName=refs%2Fpull%2F1%2Fmerge)](https://dev.azure.com/retyui/react-native-ci-cd-compare/_build/latest?definitionId=1&branchName=refs%2Fpull%2F1%2Fmerge) | 04m04s / 06m26s | 16m19s / 20m20s |
-| [Semaphore CI](https://semaphoreci.com/) | [![Build Status](https://retyui.semaphoreci.com/badges/iOS-react-native-ci-cd-compare/branches/main.svg)](https://retyui.semaphoreci.com/projects/react-native-ci-cd-compare) | **02m42s / 03m33s** 🚀 | 14m10s / 29m09s |
+| [Semaphore CI](https://semaphoreci.com/) | [![Build Status](https://retyui.semaphoreci.com/badges/android-react-native-ci-cd-compare/branches/main.svg)](https://retyui.semaphoreci.com/projects/android-react-native-ci-cd-compare) | **02m42s / 03m33s** 🚀 | 14m10s / 29m09s |
 
 ## Limitations of CI/CD services
 
