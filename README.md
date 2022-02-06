@@ -32,7 +32,7 @@ Then I add a lot of native libraries to check how it cause build time
 | CI | Status | Android | iOS |
 |---|---|---|---|
 | [ExpoAS](https://expo.dev/eas) | [n/a](https://expo.dev/accounts/retyui/projects/react-native-ci-cd-compare/builds) | 04m55s / 04m32s | soon... |
-| [AppCenter](https://appcenter.ms/) | [![appcenter](https://build.appcenter.ms/v0.1/apps/160707ba-61e6-4bca-a26c-a9e6927ae70a/branches/main/badge)](https://appcenter.ms/users/offantik/apps/Android-CI-CD-test/build/branches/main) | 03m25s / 06m22s | 19m21s / 22s12s |
+| [AppCenter](https://appcenter.ms/) | [![appcenter](https://build.appcenter.ms/v0.1/apps/160707ba-61e6-4bca-a26c-a9e6927ae70a/branches/main/badge)](https://appcenter.ms/users/offantik/apps/Android-CI-CD-test/build/branches/main) | 04m23s / 06m43s | 16m26s / 19s04s |
 | [Travis CI](https://docs.travis-ci.com/user/languages/android/) | [![Build Status](https://travis-ci.com/retyui/react-native-ci-cd-compare.svg?branch=main)](https://app.travis-ci.com/github/retyui/react-native-ci-cd-compare) | 03m29s / 06m38s | 35m41s / 41m28s |
 | [Circle CI](https://circleci.com/circleci-react/) | [![CircleCI](https://circleci.com/gh/retyui/react-native-ci-cd-compare.svg?style=svg)](https://circleci.com/gh/retyui/react-native-ci-cd-compare) | **02m22s / 04m19s** 🚀 | - |
 | [GitHub Actions](https://github.com/features/actions) | [![Build Android](https://github.com/retyui/react-native-ci-cd-compare/workflows/Build%20Android/badge.svg)](https://github.com/retyui/react-native-ci-cd-compare/actions/) | **02m44s / 04m56s** 🚀 | 13m53s / 26m58s |
