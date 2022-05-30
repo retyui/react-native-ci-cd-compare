@@ -57,7 +57,7 @@ Then I add a lot of native libraries to check how it cause build time
 
 - [Github Actions](https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions#about-billing-for-github-actions) GitHub Actions usage is **free for public repositories** 🚀 and self-hosted runners
 
-- [Azure DevOps](https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/) 1 Microsoft-hosted job with **1,800 minutes per month** for CI/CD and 1 self-hosted job with unlimited minutes per month
+- [Azure DevOps](https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/) 1 Microsoft-hosted job with **1,800 minutes per month** for CI/CD and 1 self-hosted job with unlimited minutes per month. Timeout at 60 min / build
 
 - [Travis CI](https://travis-ci.com/account/plan?billingStep=1)  provide [5 concurrent builds](https://twitter.com/travisci/status/651856122559774722) for open source builds, 10000 Credits, Unlimited unique users, Private & Open-Source repos, Linux, Windows, macOS
 
