@@ -86,3 +86,6 @@ app:
     - opts:
         is_expand: false
       BITRISE_EXPORT_METHOD: development
+meta:
+  bitrise.io:
+    stack: osx-xcode-13.4.x
