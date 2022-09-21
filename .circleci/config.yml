@@ -27,16 +27,15 @@ jobs:
             - node_modules
 
   ios-build:
-    working_directory: ~/app/android
+    working_directory: ~/app/ios
     macos:
-      xcode: 11.3.0
+      xcode: 13.4.1
 
     steps:
       - checkout:
           path: ~/app
       - attach_workspace:
           at: ~/app
-      - run: yarn install --frozen-lockfile
       - restore_cache:
           key: pods-v1-{{ checksum "ios/Podfile.lock" }}-{{ arch }}
       - run:
